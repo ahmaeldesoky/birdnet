@@ -33,14 +33,14 @@ Setting thread count for:
 - 3 Threads: 1, 4, auto
   - only for Protobuf CPU and TFLite
 
-![Benchmark Multiple Files](https://raw.githubusercontent.com/birdnet-team/birdnet/main/benchmark/single_file.png)
+![Benchmark Multiple Files](https://raw.githubusercontent.com/birdnet-team/birdnet/main/benchmark/multiple_files.png)
 
 - 4 files: 4 x 1h
 - 2 Models: Protobuf CPU, TFLite
 - 2 Multithreading approaches
-  - v1: share same model on all threads
+  - MPv1: share same model on all threads
     - not possible for Protobuf CPU
-  - v2: each thread loads its own model (much more memory)
+  - MPv2: each thread loads its own model (much more memory)
 
 ## Conclusion
 
