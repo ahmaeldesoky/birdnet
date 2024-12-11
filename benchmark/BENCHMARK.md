@@ -41,6 +41,8 @@ Setting thread count for:
   - MPv1: share same model on all threads
     - not possible for Protobuf CPU
   - MPv2: each thread loads its own model (much more memory)
+- 3 Threads: 1, 4, auto
+  - 4 only possible for MPv2
 
 ## Conclusion
 
