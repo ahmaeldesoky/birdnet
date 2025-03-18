@@ -17,6 +17,9 @@ from birdnet.models.v2m4.model_v2m4_base import (AVAILABLE_LANGUAGES, AudioModel
 from birdnet.types import Language
 from birdnet.utils import download_file_tqdm, get_species_from_file
 
+DOWNLOAD_URL = "https://tuc.cloud/index.php/s/NCLqcXzkAcznMJk/download/BirdNET_v2.4_protobuf.zip"
+DOWNLOAD_SIZE = 124522908
+
 
 def check_protobuf_model_files_exist(folder: Path) -> bool:
   exists = True
@@ -61,12 +64,10 @@ class DownloaderProtobuf():
     return model_is_downloaded
 
   def _download_model_files(self) -> None:
-    dl_path = "https://tuc.cloud/index.php/s/ko6DA29EMwLBe3c/download/BirdNET_v2.4_protobuf.zip"
-    dl_size = 124524452
     self._version_path.mkdir(parents=True, exist_ok=True)
 
     zip_download_path = self._version_path / "download.zip"
-    download_file_tqdm(dl_path, zip_download_path, download_size=dl_size,
+    download_file_tqdm(DOWNLOAD_URL, zip_download_path, download_size=DOWNLOAD_SIZE,
                        description="Downloading models")
 
     with zipfile.ZipFile(zip_download_path, 'r') as zip_ref:

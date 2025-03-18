@@ -161,7 +161,7 @@ def download_file(url: str, file_path: Path) -> None:
     raise ValueError(f"Failed to download the file. Status code: {response.status_code}")
 
 
-def download_file_tqdm(url: str, file_path: Path, *, download_size: Optional[int] = None, description: Optional[str] = None) -> None:
+def download_file_tqdm(url: str, file_path: Path, *, download_size: Optional[int] = None, description: Optional[str] = None) -> int:
   assert file_path.parent.is_dir()
 
   response = requests.get(url, stream=True, timeout=30)
@@ -178,7 +178,7 @@ def download_file_tqdm(url: str, file_path: Path, *, download_size: Optional[int
 
   if response.status_code != 200 or (total_size not in (0, tqdm_bar.n)):
     raise ValueError(f"Failed to download the file. Status code: {response.status_code}")
-
+  return total_size
 
 def itertools_batched(iterable: Iterable, n: int) -> Generator[Any, None, None]:
   # https://docs.python.org/3.12/library/itertools.html#itertools.batched

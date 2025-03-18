@@ -4,7 +4,7 @@ example/soundscape.birdnet_legacy.selection.table.txt
 src/birdnet_legacy
 src/birdnet_debug
 deploy-PyPI.sh
-
+upload/
 
 # VSCode
 .vscode

@@ -138,7 +138,6 @@ def predict_species_within_audio_file(
     silent=silent,
   )
 
-
 def predict_species_within_audio_file_core(
     audio_file: Path,
     min_confidence: float,
