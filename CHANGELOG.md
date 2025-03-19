@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.7] - 2025-03-19
+
+### Changed
+
+- Moved model download links from TUCcloud to Zenodo
+
 ## [0.1.6] - 2024-09-04
 
 ### Added
