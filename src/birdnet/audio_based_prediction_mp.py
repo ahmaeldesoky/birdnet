@@ -6,6 +6,7 @@ from os import cpu_count
 from pathlib import Path
 from typing import Callable, Generator, List, Optional, Set, Tuple, Union
 
+import soundfile as sf
 from ordered_set import OrderedSet
 from tqdm import tqdm
 
@@ -214,6 +215,11 @@ def process_predict_species_within_audio_file(audio_file: Path, prediction_metho
   if not audio_file.is_file():
     return audio_file, ValueError(
       "Value for 'audio_file' is invalid! It needs to be a path to an existing audio file.")
+
+  sf_info = sf.info(audio_file)
+  if sf_info.channels != 1:
+    return audio_file, ValueError(
+      "Value for 'audio_file' is invalid! It needs to be a mono audio file. Please resample the file to mono.")
 
   try:
     result = SpeciesPredictions(prediction_method(audio_file, model=process_model))

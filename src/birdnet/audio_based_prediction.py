@@ -77,6 +77,11 @@ def predict_species_within_audio_file(
     raise ValueError(
       "Value for 'audio_file' is invalid! It needs to be a path to an existing audio file.")
 
+  sf_info = sf.info(audio_file)
+  if sf_info.channels != 1:
+    raise ValueError(
+      "Value for 'audio_file' is invalid! It needs to be a mono audio file. Please resample the file to mono.")
+
   if batch_size < 1:
     raise ValueError(
       "Value for 'batch_size' is invalid! It needs to be larger than zero.")
@@ -137,6 +142,7 @@ def predict_species_within_audio_file(
     model=model,
     silent=silent,
   )
+
 
 def predict_species_within_audio_file_core(
     audio_file: Path,

@@ -5,6 +5,7 @@ import pytest
 
 from birdnet.audio_based_prediction_mp import predict_species_within_audio_files_mp
 from birdnet.models.v2m4.model_v2m4_tflite import AudioModelV2M4TFLite
+from birdnet_tests.helper import TEST_FILES_DIR
 from birdnet_tests.models.m2v4.test_predict_species_within_audio_file import TEST_FILE_WAV
 
 
@@ -16,6 +17,14 @@ def provide_model_to_tests():
 def get_model():
   model = AudioModelV2M4TFLite(language="en_us")
   return model
+
+
+def test_stereo_is_ignored(model: AudioModelV2M4TFLite):
+  res = list(predict_species_within_audio_files_mp(
+    [TEST_FILES_DIR / "soundscape_stereo.wav"],
+    custom_model=model,
+  ))
+  assert len(res) == 0
 
 
 def test_invalid_path_is_ignored(model: AudioModelV2M4TFLite):

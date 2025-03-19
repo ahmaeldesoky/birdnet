@@ -180,6 +180,7 @@ def download_file_tqdm(url: str, file_path: Path, *, download_size: Optional[int
     raise ValueError(f"Failed to download the file. Status code: {response.status_code}")
   return total_size
 
+
 def itertools_batched(iterable: Iterable, n: int) -> Generator[Any, None, None]:
   # https://docs.python.org/3.12/library/itertools.html#itertools.batched
   # batched('ABCDEFG', 3) → ABC DEF G
@@ -248,6 +249,9 @@ def load_audio_in_chunks_with_overlap(audio_path: Path, /, *, chunk_duration_s: 
   assert audio_path.is_file()
 
   sf_info = sf.info(audio_path)
+  is_mono = sf_info.channels == 1
+  assert is_mono
+
   sample_rate = sf_info.samplerate
 
   timestamps = get_chunks_with_overlap(

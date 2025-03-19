@@ -165,6 +165,14 @@ def test_invalid_sigmoid_sensitivity_raises_value_error(model: AudioModelBaseV2M
     ))
 
 
+def test_stereo_raise_error(model: AudioModelBaseV2M4):
+  with pytest.raises(ValueError, match=r"Value for 'audio_file' is invalid! It needs to be a mono audio file. Please resample the file to mono."):
+    next(predict_species_within_audio_file(
+      TEST_FILES_DIR / "soundscape_stereo.wav",
+      custom_model=model,
+    ))
+
+
 def test_example_interval_count_is_40_on_0_overlap(model: AudioModelBaseV2M4):
   res = SpeciesPredictions(predict_species_within_audio_file(
     TEST_FILE_WAV, min_confidence=0, apply_sigmoid=False, chunk_overlap_s=0, custom_model=model))

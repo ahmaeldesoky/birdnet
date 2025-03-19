@@ -11,7 +11,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Switched model download links from TUCcloud to Zenodo
+- Switched model download links from TUCcloud to Zenodo [#10](https://github.com/birdnet-team/birdnet/issues/10)
+
+### Fixed
+
+- Added check for mono files [#9](https://github.com/birdnet-team/birdnet/issues/9)
 
 ## [0.1.6] - 2024-09-04
 
