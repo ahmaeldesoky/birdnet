@@ -15,7 +15,7 @@ from birdnet.models.v2m4.model_v2m4_base import (AVAILABLE_LANGUAGES, AudioModel
 from birdnet.types import Language
 from birdnet.utils import download_file_tqdm, get_species_from_file
 
-DOWNLOAD_URL = "https://tuc.cloud/index.php/s/4MizEYkDHJEJQwF/download/BirdNET_v2.4_tflite.zip"
+DOWNLOAD_URL = "https://zenodo.org/records/15050749/files/BirdNET_v2.4_tflite.zip"
 DOWNLOAD_SIZE = 76822925
 
 
