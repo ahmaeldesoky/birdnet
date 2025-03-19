@@ -36,6 +36,7 @@ print("Chunk end timepoint: 3s")
 print(f"Scientific name: {scientific_name}")
 print(f"Common name: {common_name}")
 print(f"Confidence: {confidence*100:.2f}%")
+print("...")
 # Output:
 # == Prediction results ==
 # Chunk start timepoint: 0s
