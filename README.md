@@ -124,7 +124,7 @@ For a preliminary benchmark, see [benchmark/BENCHMARK.md](https://github.com/bir
 
 The audio models support all formats compatible with the SoundFile library (see [here](https://python-soundfile.readthedocs.io/en/0.11.0/#read-write-functions)). This includes, but is not limited to, WAV, FLAC, OGG, and AIFF. The flexibility of supported formats ensures that the models can handle a wide variety of audio input types, making them adaptable to different use cases and environments.
 
-## Model Formats and Execution Details
+## Model formats and execution details
 
 This project provides two model formats: Protobuf/Raven and TFLite. Both models are designed to have identical precision up to 2 decimal places, with differences only appearing from the third decimal place onward.
 
