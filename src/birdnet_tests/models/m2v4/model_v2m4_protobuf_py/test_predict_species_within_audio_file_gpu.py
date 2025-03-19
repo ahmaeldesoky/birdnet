@@ -1,4 +1,5 @@
 import pickle
+from logging import getLogger
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
@@ -30,6 +31,8 @@ def get_model():
     first_gpu: tf.config.LogicalDevice = all_gpus[0]
     model = AudioModelV2M4Protobuf(language="en_us", custom_device=first_gpu.name)
     return model
+  logger = getLogger(__name__)
+  logger.warning("No GPU found, test couldn't be run.")
   return None
 
 
